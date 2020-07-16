@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 前期的知识准备工作
+1.Javascript
 
-In the project directory, you can run:
+2.HTML + CSS
 
-### `yarn start`
+3.构建工具
+ webpack
+ 
+4.安装node,npm
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5.cnpm命令
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+6.官方文档 https://zh-hans.reactjs.org/docs/create-a-new-react-app.html
+https://zh-hans.reactjs.org/docs/getting-started.html
 
-### `yarn test`
+## 创建react项目
+ 	npx create-react-app 项目名
+ 	cd 项目名
+ 	npm start
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 环境介绍【项目文件结构】
 
-### `yarn build`
+ 	node_modules : 文件非常大
+ 	public : 资源入口文件
+ 	src：源码文件
+ 	package.json : 资源配置文件
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## react基础知识
+	基础参数：
+	const react = 'hello small batch';
+	ReactDOM.render(<h1>{react}</h1>, document.getElementById('root'));
+	//react 渲染函数-- ReactDOM.render(,)
+	//document.getElementById("root")   对应/public/index.html中的<div id="root"></div> 根节点div容器
+### jsx语法：
+	javascript + xml语法(html)
+	解毒jsx语法：遇到<>按照html解析，遇到{}按照javascript解析
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 元素渲染
+	//demo1
+	const react = 'hello small batch';
+	ReactDOM.render(<h1>{react}</h1>, document.getElementById('root'));
+	
+	
+	//demo2
+	//如果存在标签结构，并且标签结构需要换行，需要使用()括号括起来
+	function tick() {
+	    const element = (
+	        <div>
+	            <h1>Demo1</h1>
+	            <h2> Hello, small batch! It is {new Date().toLocaleTimeString()}</h2>
+	        </div>
+	    );
+	    //渲染函数
+	    ReactDOM.render(element, document.getElementById('demo1'));
+	}
+	//一秒刷新一下时间
+	setInterval(tick, 1000);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### 组件
+	组件的后缀可以是.js 也可以是.jsx, jsx会有react语法提示
+	

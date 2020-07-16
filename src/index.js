@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//react 渲染函数-- ReactDOM.render(,)
+//document.getElementById("root")   对应/public/index.html中的<div id="root"></div> 根节点div容器
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//demo1
+const react = 'hello small batch';
+ReactDOM.render(<h1>{react}</h1>, document.getElementById('root'));
+
+
+//demo2
+//如果存在标签结构，并且标签结构需要换行，需要使用()括号括起来
+function tick() {
+    const element = (
+        <div>
+            <h1>Demo1</h1>
+            <h2> Hello, small batch! It is {new Date().toLocaleTimeString()}</h2>
+        </div>
+    );
+    //渲染函数
+    ReactDOM.render(element, document.getElementById('demo1'));
+}
+//一秒刷新一下时间
+setInterval(tick, 1000);

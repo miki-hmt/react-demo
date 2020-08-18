@@ -14,40 +14,42 @@
 6.官方文档 https://zh-hans.reactjs.org/docs/create-a-new-react-app.html
 https://zh-hans.reactjs.org/docs/getting-started.html
 
-## 创建react项目
+## 一，react入门
+
+### 1.1 创建react项目
  	npx create-react-app 项目名
  	cd 项目名
  	npm start
 
-## 环境介绍【项目文件结构】
+### 1.2 环境介绍【项目文件结构】
 
  	node_modules : 文件非常大
  	public : 资源入口文件
  	src：源码文件
  	package.json : 资源配置文件
-### props和state的区别
+### 1.3 props和state的区别
 	props：
 　　props是一个从外部传进组件的参数，由于React具有单向数据流的特性，所以他的主要作用是从父组件向子组件中传递数据，它是不可改变的，如果想要改变它，只能通过外部组件传入新的props来重新渲染子组件，否则子组件的props和展示形式不会改变，props除了可以传字符串，数字，还可以传递对象，数组甚至是回调函数
 
     state：
 　　state主要作用是用于组件保存，控制及修改自己的状态，它只能在constructor中初始化，state是可以被改变的，state放改动的一些属性，比如点击选中，再点击取消，类似这种属性就放入带state中，注意：没有state的叫做无状态组件，多用props少用state，多写无状态组件，注意：修改state的值时，必须通过调用setState方法，当我们调用this.setState方法时,React会更新组件的数据状态，并且重新调用render方法
 
-### let和const的区别
+### 1.4 let和const的区别
 	let与const都是只在声明所在的块级作用域内有效。
 	let声明的变量可以改变，值和类型都可以改变，没有限制。
 	const声明的变量不得改变值，这意味着，const一旦声明变量，就必须立即初始化，不能留到以后赋值。
 
-## react基础知识
+## 二，react基础知识
 	基础参数：
 	const react = 'hello small batch';
 	ReactDOM.render(<h1>{react}</h1>, document.getElementById('root'));
 	//react 渲染函数-- ReactDOM.render(,)
 	//document.getElementById("root")   对应/public/index.html中的<div id="root"></div> 根节点div容器
-### jsx语法：
+### 2.1 jsx语法：
 	javascript + xml语法(html)
 <font face="微软雅黑" size=3 color=#FF0000 >解毒jsx语法：遇到 <> 按照html解析，遇到 { } 按照javascript解析 </font>
 
-### 元素渲染
+### 2.2 元素渲染
 	//demo1
 	const react = 'hello small batch';
 	ReactDOM.render(<h1>{react}</h1>, document.getElementById('root'));
@@ -68,17 +70,17 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	//一秒刷新一下时间
 	setInterval(tick, 1000);
 
-### 组件
+### 2.3 组件
 	组件的后缀可以是.js 也可以是.jsx, jsx会有react语法提示
 	一个react项目是由成千上万个组件组成
 
 	1. Input表单要想值可变，需要使用defaultValue="" 而不是Value=""
 
-### props属性
+### 2.4 props属性
 	组件的复用性很重要
 <font face="微软雅黑" size=3 color=#FF0000 >！！poros属性在使用的地方不可被修改</font>
 
-### react添加注释的方法
+### 2.5 react添加注释的方法
 	import React from 'react'
 
 	//######## demo3 #1 组件导航的复用性
@@ -109,9 +111,9 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	    }
 	}
 
-### react 组件State
+### 2.6 react 组件State
 
-### react生命周期函数（钩子函数也属于生命周期函数的一部分）
+### 2.7 react生命周期函数（钩子函数也属于生命周期函数的一部分）
 	随着对react理解加深，生命周期的参考价值越来越重要。
 	函数列表：
 	ComponentWillMount：在组件渲染之前执行
@@ -132,12 +134,12 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 图二
 ![](http://images.sharehoo.cn/20190606101223243.png)
 	
-#### 父传子，子传父
+#### 2.7.1 父传子，子传父
 	修改props：涉及到子传父，回传的概念，这里即是子级组件发生改变，回传消息给父级更新。
 	工作或者面试中经常遇到这样的问题，“子组件如何向父组件传值？”。其实很简单，概括起来就是：react中state改变了，组件才会update。父写好state和处理该state的函数，
 	同时将函数名通过props属性值的形式传入子，子调用父的函数，同时引起state变化。
 
-##### 子传父创建流程	
+##### 2.7.2 子传父创建流程	
 	1. 在父组件中定义构造方法，定义要回传的字段或属性
 	2. 在父级中定义该字段成动态可变	  --<div>用户邮箱：{this.state.email}</div>
 	3. 定义子组件取值的key【handle】 --<Child name="email" defaultValue={this.state.email} handle={this.handleEmail}/>
@@ -185,33 +187,33 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	    }
 	}
 
-### setState 更新是同步还是异步
+### 2.8 setState 更新是同步还是异步
 1. setState会引起试图的重绘
 2. 在可控的情况下是异步，在非可控的情况下是同步
 
-### React条件渲染
+### 2.9 React条件渲染
 	React 中的条件渲染和 JavaScript 中的一样，使用 JavaScript 运算符 if 或者条件运算符去创建元素来表现当前的状态，然后让 React 根据它们来更新 UI。
 
-### React列表渲染&key
+### 2.10 React列表渲染&key
 	key的作用：
 	遍历数据得时候，如果不添加key，会导致整个数据部分都重新渲染，增加内存消耗
 	添加key之后，只渲染新增得数据部分
 
-### react表单受控组件
+### 2.11 react表单受控组件
 	分为受控组件和非受控组件
-####1.受控组件
+####2.11.1. 受控组件
 	https://zh-hans.reactjs.org/docs/forms.html
 	在 HTML 中，表单元素（如<input>、 <textarea> 和 <select>）通常自己维护 state，并根据用户输入进行更新。
 	而在 React 中，可变状态（mutable state）通常保存在组件的 state 属性中，并且只能通过使用 setState()来更新。
-####2.非受控组件
+####2.11.2. 非受控组件
 	在大多数情况下，我们推荐使用 受控组件 来处理表单数据。在一个受控组件中，表单数据是由 React 组件来管理的。另一种替代方案是使用非受控组件，这时表单数据将交由 DOM 节点来处理。
 	要编写一个非受控组件，而不是为每个状态更新都编写数据处理函数，你可以 使用 ref 来从 DOM 节点中获取表单数据。
 	https://zh-hans.reactjs.org/docs/uncontrolled-components.html
-####3.表单多元素输入处理
+####2.11.3. 表单多元素输入处理
 	处理多个输入
 	当需要处理多个 input 元素时，我们可以给每个元素添加 name 属性，并让处理函数根据 event.target.name 的值选择要执行的操作。
 
-### 组合vs继承
+### 2.12 组合vs继承
 	React 有十分强大的组合模式。我们推荐使用组合而非继承来实现组件间的代码重用。
 	在这篇文档中，我们将考虑初学 React 的开发人员使用继承时经常会遇到的一些问题，并展示如何通过组合思想来解决这些问题。
 	包含关系
@@ -219,7 +221,31 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	我们建议这些组件使用一个特殊的 children prop 来将他们的子组件传递到渲染结果中：
 	https://zh-hans.reactjs.org/docs/composition-vs-inheritance.html
 
-### 使用propTypes进行类型检查
+### 2.13 使用propTypes进行类型检查
 	随着你的应用程序不断增长，你可以通过类型检查捕获大量错误。对于某些应用程序来说，你可以使用 Flow 或 TypeScript 等 JavaScript 扩展来对整个应用程序做类型检查。但即使你不使用这些扩展，React 也内置了一些类型检查的功能。要在组件的 props 上进行类型检查，你只需配置特定的 propTypes 属性：
 	https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html
+
+### 2.14 react-demo项目整体架构
+![](http://images.sharehoo.cn/QQ%E6%88%AA%E5%9B%BE20200818231254.png)
+
+
+## 三，react组件库antd
+	
+### 1.搭建项目脚手架
+	https://ant.design/components/menu-cn/#API
+	https://ant.design/docs/react/use-with-create-react-app-cn
+	1.1 搭建项目
+	npx create-react-app react-antd-demo
+	
+	1.2 引入antd组件库：
+	cd react-antd-demo
+	yarn add antd
+	
+	1.3 删除无用的文件：
+![](http://images.sharehoo.cn/QQ%E6%88%AA%E5%9B%BE20200818225114.png)
+
+	图片2.
+![](http://images.sharehoo.cn/QQ%E6%88%AA%E5%9B%BE20200818233657.png)
+	
+	
 	

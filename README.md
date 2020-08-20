@@ -295,7 +295,18 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	图片2.
 ![](http://images.sharehoo.cn/QQ%E6%88%AA%E5%9B%BE20200818233657.png)
 	
+	1.4 引入antd.css样式文件
+	import 'antd/dist/antd.css';
+
 ### 2.组件使用
+	2.1	引入antd.css样式文件
+	import 'antd/dist/antd.css';
+	
+	2.2 引入antd组件
+	//demo3 #1 引入分页
+	import { Button, DatePicker, message, Pagination } from 'antd';
+	2.3 添加组件代码
+	<Pagination defaultCurrent={1} total={50} onChange={pageChange}/>
 
 ### 3.antd按需加载
     由于antd库非常大，全部加载会导致网页很慢，这里需要优化一下按需加载。
@@ -307,7 +318,7 @@ https://zh-hans.reactjs.org/docs/getting-started.html
     配置教程：
     。npm run eject
     。npm install -g cnpm --registry=https://registry.npm.taobao.org      //安装cnpm环境   
-    。npm install babel-plugin-import --save-dev
+    。cnpm install babel-plugin-import --save-dev
     
     运行命令之后，项目会生成config，scripts文件夹
     。修改package.json文件，
@@ -326,12 +337,12 @@ https://zh-hans.reactjs.org/docs/getting-started.html
           ]
         ]
     
-    。删除之前引入的antd.css文件，测试是否按需加载
+    。删除之前引入的antd.css文件即可，然后测试是否按需加载
     
 #### webpack的课程，如果配置es6的转码，需要一个 .babellrc文件
     有效利用搜索引擎
     1. npm run eject: 拉取react的配置文件
-    2. 遇到的问题：关于文件被修改了，git未提交，npm run eject失败，解决方案： 将git未提交的文件提交即可
+    2. 遇到的问题：关于文件被修改了，git未提交，npm run eject失败，解决方案： 将git未提交的文件提交即可（如果项目之前已经配置了eject，再次启动报错可以忽略）
 
 ## 四，react fetch获取数据
     

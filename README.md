@@ -112,7 +112,7 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	    }
 	}
 
-### 2.6 react 组件State
+### 2.6 react 组件State 
 
 ### 2.7 react生命周期函数（钩子函数也属于生命周期函数的一部分）
 	随着对react理解加深，生命周期的参考价值越来越重要。

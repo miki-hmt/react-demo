@@ -18,7 +18,7 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 ## 一，react入门
 
 ### 1.1 创建react项目
- 	npx create-react-app 项目名
+ 	npx create-react-app 项目名    ## 注意：项目名不能大写
  	cd 项目名
  	npm start
 

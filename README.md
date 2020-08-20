@@ -9,7 +9,8 @@
  
 4.安装node,npm
 
-5.cnpm命令
+5.cnpm命令,安装
+  https://www.jianshu.com/p/fbd87ad45631
 
 6.官方文档 https://zh-hans.reactjs.org/docs/create-a-new-react-app.html
 https://zh-hans.reactjs.org/docs/getting-started.html
@@ -300,5 +301,35 @@ https://zh-hans.reactjs.org/docs/getting-started.html
     由于antd库非常大，全部加载会导致网页很慢，这里需要优化一下按需加载。
     
 1. 手动按需加载
-2. 利用索引只能搜索	
-	
+2. 使用babel-plugin-import完成按需加载
+    
+    
+    配置教程：
+    。npm run eject
+    。npm install -g cnpm --registry=https://registry.npm.taobao.org      //安装cnpm环境   
+    。npm install babel-plugin-import --save-dev
+    
+    运行命令之后，项目会生成config，scripts文件夹
+    。修改package.json文件，
+    在"babel": {
+      "presets": [
+        "react-app"
+      ],
+    增加配置内容：
+    "plugins":[
+          ["import",
+            {
+              "libraryName": "antd",
+              "libraryDirectory": "es",
+              "style": "css"
+            }
+          ]
+        ]
+    
+    。删除之前引入的antd.css文件，测试是否按需加载
+    
+#### webpack的课程，如果配置es6的转码，需要一个 .babellrc文件
+    有效利用搜索引擎
+    1. npm run eject: 拉取react的配置文件
+    2. 遇到的问题：关于文件被修改了，git未提交，npm run eject失败，解决方案： 将git未提交的文件提交即可
+    3. 	

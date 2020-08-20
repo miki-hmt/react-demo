@@ -332,4 +332,6 @@ https://zh-hans.reactjs.org/docs/getting-started.html
     有效利用搜索引擎
     1. npm run eject: 拉取react的配置文件
     2. 遇到的问题：关于文件被修改了，git未提交，npm run eject失败，解决方案： 将git未提交的文件提交即可
-    3. 	
+
+## 四，react fetch获取数据
+    

@@ -191,6 +191,53 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 1. setState会引起试图的重绘
 2. 在可控的情况下是异步，在非可控的情况下是同步
 
+### 2.9 usestate hook函数
+        
+    usestate的常规用法：  
+    在react框架中，不适用类组件，使用函数式组件又想自定义数据维护业务开发的时候，就需要使用react提供的hook来完成。usestate就是最常见的一种hook。
+    const [name,setName] = useState('dx');
+    setName（'dx1'）
+    中括号实际是一个解构运算，第一个name是设置的值，第二个setName是只能用来改变name的方法。
+    
+    useState遇到的坑：
+    3.1、useState不适合复杂对象的更改。
+    因为useState不能像setState那样进行合并更新，当使用useState第二个参数进行数据更新的时候，必须传入一个完整的结构，而不仅仅只是改变的那一部分。
+    
+    3.2、useState异步回调的问题：
+    当使用usestate对数据进行更新，并不能立刻获取到最新的数据。
+      const [name, setName] = useState('dx');
+    
+      const handleTest = () => {
+        console.log(name) // dx
+        setName('dx1')
+        console.log(name) // dx
+      }
+    解决的办法。
+    一、配合useEffect使用
+      const [name, setName] = useState('dx');
+      const handleTest = () => {
+        console.log(name) //dx
+        setName('dx1')
+        console.log(name)//dx
+      }
+      
+      useEffect(() => {
+        console.log(name) //dx1
+      },[name])
+    二、创建一个新的变量保存最新的数据
+      const [name, setName] = useState('dx');
+      const handleTest = () => {
+        console.log(name) //dx
+        const newName = "dx1"
+        setName(newName)
+        console.log(newName) //dx1
+      }
+    
+    3.3、根据hook的规则，使用useState的位置有限制
+    仅顶层调用 Hook ：不能在循环，条件，嵌套函数等中调用useState()。
+    在多个useState()调用中，渲染之间的调用顺序必须相同。
+    仅从React 函数调用 Hook:必须仅在函数组件或自定义钩子内部调用useState()。
+
 ### 2.9 React条件渲染
 	React 中的条件渲染和 JavaScript 中的一样，使用 JavaScript 运算符 if 或者条件运算符去创建元素来表现当前的状态，然后让 React 根据它们来更新 UI。
 
@@ -230,7 +277,7 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 
 
 ## 三，react组件库antd
-	
+	https://ant.design/docs/react/use-with-create-react-app-cn
 ### 1.搭建项目脚手架
 	https://ant.design/components/menu-cn/#API
 	https://ant.design/docs/react/use-with-create-react-app-cn
@@ -247,5 +294,11 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 	图片2.
 ![](http://images.sharehoo.cn/QQ%E6%88%AA%E5%9B%BE20200818233657.png)
 	
-	
+### 2.组件使用
+
+### 3.antd按需加载
+    由于antd库非常大，全部加载会导致网页很慢，这里需要优化一下按需加载。
+    
+1. 手动按需加载
+2. 利用索引只能搜索	
 	

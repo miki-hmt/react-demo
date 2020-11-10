@@ -345,4 +345,40 @@ https://zh-hans.reactjs.org/docs/getting-started.html
     2. 遇到的问题：关于文件被修改了，git未提交，npm run eject失败，解决方案： 将git未提交的文件提交即可（如果项目之前已经配置了eject，再次启动报错可以忽略）
 
 ## 四，react fetch获取数据
+
+### 4-1 跨域解决方案
+
+	/**
+     * 2020.08.23 miki 跨域解决方案
+     *      开发模式下：
+     *          利用环境解决：react，vue常用框架都提供了解决方案(增加proxy之后要重启)
+     *      生产模式下：
+     *          jsonp cors iframe postMessage....
+     */
+
+#### 4-1-1 配置package.json文件解决跨域
+	1. 开发模式下：
+	修改package.json文件如下：
+![](http://images.sharehoo.cn/QQ%E5%9B%BE%E7%89%8720200823223106.png)
+	然后修改要跨域的接口地址：
+
+	//http://tingapi.ting.baidu.com/v1/restserver/ting?fortmat=json&callback=&from=webapp_music&method=baidu.ting.billboard.billList&type=1&size=10&offset=0
+        //get方式  //url中移除原有的host域名，http://tingapi.ting.baidu.com
+        fetch('/v1/restserver/ting?method=baidu.ting.billboard.billList&type=1&size=10&offset=0')
+            .then(res =>{
+                return res.json();
+            })
+            .then(data =>{
+                console.log(data);
+                this.setState({
+                    songList: data.song_list
+                })
+            })
+            //处理失败请求
+            .catch(error =>{
+            console.log(new Error(error));
+        })
+
+	2. 手动解决跨域问题
+	
     

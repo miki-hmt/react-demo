@@ -38,6 +38,7 @@ import Compose from './demo12-组合vs继承/compose'
 
 //demo13 #1 propsType类型检查
 import PropsTypeDemo from './demo13-propsType类型检查/PropsTypeDemo'
+import ImageList from "./demo14-waterfall/ImageList";
 //##### 第二步 用类的形式创建组件Hook形式
 class App extends React.Component{
 
@@ -116,6 +117,8 @@ class App extends React.Component{
 
                 {/*demo13 #2 PropsType类型检查- 检查title*/}
                 <PropsTypeDemo title={'这是标题'}/>
+
+                <ImageList/>
             </div>
         );
     }
